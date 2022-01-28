@@ -46,7 +46,7 @@ You need to train float model first (can be skipped if you use pretrained weight
 
 ```
 $ EXP_ID=0
-$ python train.py $EXP_ID --mode normal --lr 0.005 --batch_size 128
+$ python train.py $EXP_ID --mode normal --lr 0.005 --batch_size 64
 ```
 
 Trained weight is saved into `models/exp_0000/best_model.pth`.
@@ -80,10 +80,8 @@ For quantization aware training (can be skipped if you use pretrained weight):
 
 ```
 $ EXP_ID=1
-$ python train.py $EXP_ID --mode qat --replace_relu --fuse_model --lr 0.0005 --batch_size 128
+$ python train.py $EXP_ID --mode qat --replace_relu --fuse_model --lr 0.005 --batch_size 64
 ```
-
-**Note that the learning rate is lower than the one used to train float model.**
 
 Trained weight is saved into `models/exp_0001/best_model.pth`.
 
