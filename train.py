@@ -170,10 +170,10 @@ def main():
 
         wandb.log(logs)
 
-    wandb.finish()
-
     print('Reached best accuract %.4f at epoch %d' %
           (best_accuracy, best_accuracy_epoch))
+
+    wandb.finish()
 
 
 if __name__ == '__main__':
