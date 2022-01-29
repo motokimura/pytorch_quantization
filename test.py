@@ -84,6 +84,14 @@ def main():
                 args.quantization_backend)
             torch.quantization.prepare_qat(model, inplace=True)
             model.load_state_dict(state_dict)
+
+            # https://github.com/pytorch/pytorch/pull/42835
+            model.apply(torch.quantization.disable_observer)
+            t = torch.zeros([1, 3, 32, 32], device=device)
+            model.to(device)
+            _ = model(t)
+            torch.onnx.export(model, t, 'test.onnx', opset_version=13)
+
             torch.quantization.convert(model.eval(), inplace=True)
         else:
             raise ValueError(f'{args.mode} is not supported.')
