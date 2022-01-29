@@ -7,8 +7,8 @@ Currently, post training static quantization and quantization aware training are
 ## Requirements
 
 - Ubuntu OS
-- CUDA (tested with 11.1)
-- Python3 (test with 3.6.9)
+- CUDA (tested with 11.6)
+- Python3 (test with 3.8.8)
 
 See [requirements.txt](requirements.txt) for additional requirements.
 
@@ -21,7 +21,10 @@ May work with other versions, but note that torch>=1.3.0 is required to use PyTo
 $ pip install -r requirements.txt
 ```
 
-Before training, get your API key from [W&B](https://wandb.ai) and then:
+Before training, sign up for [W&B](https://wandb.ai)
+and create a new project named `pytorch_model_quantization`.
+
+Get your API key from [W&B](https://wandb.ai) > `Settings` > `API keys` and then:
 
 ```
 $ echo 'WANDB_API_KEY = "xxxx"' > .env  # replace xxxx with your own W&B API key
@@ -106,8 +109,6 @@ $ ls -lh models/exp_0001/scripted_*
 - [ ] Add a table to show model accuracy and performance
 - [ ] Add more options for QAT (observer, etc.)
 - [ ] Add models
-- [ ] Use Docker
-- [ ] Use PyTorch Lightning
 - [ ] Finish docstring
 
 
